@@ -117,10 +117,7 @@ describe('reducerTest', () => {
         correctAnswer: 90,
         showInfoModal: false
       };
-    state = reducerTest(state, toggleInfoModal());
-      expect(state.guesses).toEqual([]);
-      expect(state.feedback).toEqual('Make your guess!');
-      expect(state.correctAnswer).toEqual(90);
+    state = reducerTest(state, showInfoModal());
       expect(state.showInfoModal).toBe(true);
   });
 
