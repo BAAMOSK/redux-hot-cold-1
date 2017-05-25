@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import InfoModal from './info-modal';
+import {InfoModal} from './info-modal';
 
 import {toggleInfoModal} from '../actions';
 
@@ -14,7 +14,9 @@ describe('<InfoModal />', () => {
         const dispatch = jest.fn();
         const wrapper = shallow(<InfoModal dispatch={dispatch} />);
         const link = wrapper.find('.close');
-        link.simulate('click', {});
+        link.simulate('click', {
+            preventDefault(){}
+        });
         expect(dispatch).toHaveBeenCalledWith(toggleInfoModal());
         //TALK ABOUT THIS
         expect(dispatch).toHaveBeenCalled();
